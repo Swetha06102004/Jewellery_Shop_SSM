@@ -1,0 +1,84 @@
+/* Whole section */
+.collections {
+  padding: 60px 8% 60px;
+  background: #fff;
+  text-align: center;
+  margin-top: 5px;
+}
+
+/* Heading */
+.collections-title {
+  font-size: 36px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.collections-subtitle {
+  font-size: 16px;
+  color: #777;
+  margin-bottom: 50px;
+}
+
+/* IMPORTANT PART – alignment fix */
+.collection-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 cards side by side */
+  gap: 30px;
+}
+
+/* Card */
+.collection-card {
+  background: #fafafa;
+  border-radius: 14px;
+  padding: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+  transition: transform 0.3s ease;
+}
+
+/* Hover */
+.collection-card:hover {
+  transform: translateY(-8px);
+}
+
+/* Image */
+.collection-card img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 18px;
+}
+
+/* Text */
+.collection-card h3 {
+  font-size: 20px;
+  margin-bottom: 8px;
+}
+
+.collection-card p {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 16px;
+}
+
+/* Button */
+.collection-card button {
+  padding: 10px 20px;
+  border: none;
+  background: #caa24d;
+  color: #fff;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.collection-card button:hover {
+  background: #b18c3c;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .collection-cards {
+    grid-template-columns: 1fr;
+  }
+}

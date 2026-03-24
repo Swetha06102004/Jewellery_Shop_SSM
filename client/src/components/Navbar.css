@@ -1,0 +1,147 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 70px;
+  display: flex;
+  justify-content: center;
+  z-index: 1000;
+  max-width: 1500px;
+  background: rgba(10, 10, 10, 0.75);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(245,196,107,0.15);
+}
+
+.navbar-inner {
+  width: 100%;
+  max-width: 1200px;
+  padding: 0 40px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Logo */
+.nav-logo {
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  color: #f5c46b;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.nav-logo span {
+  color: #fff;
+  font-weight: 400;
+}
+
+.nav-logo .logo-image {
+  height: 40px; 
+  width: auto;  
+}
+
+/* Links */
+.nav-links a {
+  margin: 0 18px;
+  text-decoration: none;
+  color: #ddd;
+  font-size: 14px;
+  letter-spacing: 1px;
+  position: relative;
+}
+
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 0%;
+  height: 2px;
+  background: #f5c46b;
+  transition: 0.3s;
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+/* Button */
+.nav-btn {
+  padding: 10px 22px;
+  border-radius: 30px;
+  border: 1px solid #f5c46b;
+  background: transparent;
+  color: #f5c46b;
+  font-size: 13px;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.nav-btn:hover {
+  background: #f5c46b;
+  color: #000;
+}
+
+.nav-actions {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.auth-overlay,
+.bookvisit-overlay {
+  z-index: 1000;
+}
+.navbar {
+  z-index: 10;
+}
+
+/* ================= Login Button ================= */
+.nav-login-btn {
+  background: transparent;
+  color: #f5c46b;
+  border: 1px solid #f5c46b;
+  padding: 9px 20px;
+  border-radius: 28px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+/* Hover */
+.nav-login-btn:hover {
+  background: rgba(245, 230, 200, 0.12);
+  border-color: #d4af37;
+  color: #ffd700;
+}
+
+/* Active */
+.nav-login-btn:active {
+  transform: scale(0.97);
+}
+
+.nav-cart {
+  position: relative;
+  font-size: 22px;
+  margin-right: 15px;
+  text-decoration: none;
+  color: white;
+}
+
+.cart-badge {
+  position: absolute;
+  top: -6px;
+  right: -10px;
+  background: red;
+  color: white;
+  font-size: 12px;
+  padding: 2px 6px;
+  border-radius: 50%;
+}
+

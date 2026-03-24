@@ -1,0 +1,271 @@
+/* ================= ADMIN LAYOUT ================= */
+
+.admin-layout{
+display:flex;
+min-height:100vh;
+background:#0f0f0f;
+color:white;
+font-family:Arial, Helvetica, sans-serif;
+}
+
+/* ================= SIDEBAR ================= */
+
+.admin-sidebar{
+width:220px;
+background:#121212;
+padding:30px 20px;
+display:flex;
+flex-direction:column;
+border-right:1px solid #222;
+}
+
+.admin-logo{
+color:#d4af37;
+font-size:22px;
+margin-bottom:30px;
+}
+
+/* ================= SIDEBAR BUTTONS ================= */
+
+.admin-sidebar button{
+background:none;
+border:none;
+color:#ccc;
+padding:12px;
+margin-bottom:10px;
+text-align:left;
+cursor:pointer;
+border-radius:6px;
+font-size:15px;
+transition:0.3s;
+}
+
+.admin-sidebar button:hover{
+background:#1e1e1e;
+color:#d4af37;
+}
+
+/* ================= MAIN AREA ================= */
+
+.admin-main{
+flex:1;
+display:flex;
+flex-direction:column;
+align-items:center;
+margin-left: 80px;
+margin-top: 80px;
+}
+
+/* ================= TOPBAR ================= */
+
+.admin-topbar{
+width:100%;
+background:#161616;
+padding:20px 30px;
+border-bottom:1px solid #222;
+}
+
+.admin-topbar h1{
+font-size:26px;
+text-align:center;
+}
+
+/* ================= CONTENT ================= */
+
+.admin-content{
+flex:1;
+display:flex;
+flex-direction:column;
+align-items:center;
+justify-content:flex-start;
+margin-top:40px;
+width:100%;
+}
+
+/* ================= DASHBOARD CARDS ================= */
+
+.dashboard-cards{
+display:grid;
+grid-template-columns:repeat(4,220px);
+gap:25px;
+justify-content:center;
+margin-top:30px;
+margin-left: 30px;
+}
+
+.dashboard-card{
+background:linear-gradient(160deg,#111,#1b1b1b);
+padding:25px;
+border-radius:14px;
+box-shadow:0 0 15px rgba(255,215,0,0.15);
+text-align:center;
+}
+
+.dashboard-card h3{
+color:#ffd700;
+margin-bottom:10px;
+font-size:18px;
+}
+
+.dashboard-card p{
+font-size:26px;
+font-weight:bold;
+}
+
+/* ================= TABLE ================= */
+
+table{
+margin:auto;
+width:600px;
+border-collapse:collapse;
+background:#1a1a1a;
+border-radius:10px;
+overflow:hidden;
+box-shadow:0 0 15px rgba(255,215,0,0.15);
+}
+
+th{
+background:#242424;
+color:#d4af37;
+padding:14px;
+text-align:left;
+}
+
+td{
+padding:14px;
+border-bottom:1px solid #333;
+}
+
+tr:hover{
+background:#202020;
+}
+
+/* ================= ACTION BUTTONS ================= */
+
+.call-btn{
+background:#28a745;
+color:white;
+padding:6px 10px;
+border-radius:6px;
+margin-right:8px;
+text-decoration:none;
+font-size:14px;
+}
+
+.delete-btn{
+background:#dc3545;
+color:white;
+padding:6px 10px;
+border-radius:6px;
+cursor:pointer;
+margin-left:8px;
+border:none;
+font-size:14px;
+}
+
+/* ================= ADD PRODUCT FORM ================= */
+
+.add-product-form{
+width:420px;
+margin:auto;
+margin-top:30px;
+margin-left: 200px;
+background:linear-gradient(160deg,#111,#1b1b1b);
+padding:30px;
+border-radius:14px;
+box-shadow:0 0 15px rgba(255,215,0,0.15);
+display:flex;
+flex-direction:column;
+gap:15px;
+}
+
+/* TITLE */
+
+.add-product-form h2{
+text-align:center;
+color:#d4af37;
+margin-bottom:10px;
+}
+
+/* INPUTS */
+
+.add-product-form input,
+.add-product-form select{
+padding:12px;
+border-radius:6px;
+border:1px solid #333;
+background:#121212;
+color:white;
+font-size:14px;
+outline:none;
+transition:0.3s;
+}
+
+.add-product-form input:focus,
+.add-product-form select:focus{
+border:1px solid #d4af37;
+}
+
+/* IMAGE PREVIEW */
+
+.preview-img{
+width:120px;
+height:120px;
+object-fit:cover;
+border-radius:10px;
+margin:auto;
+border:2px solid #d4af37;
+}
+
+/* BUTTON */
+
+.add-product-form button{
+background:#d4af37;
+color:black;
+border:none;
+padding:12px;
+border-radius:8px;
+font-weight:bold;
+cursor:pointer;
+transition:0.3s;
+}
+
+.add-product-form button:hover{
+background:#f5d76e;
+transform:scale(1.03);
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media(max-width:1000px){
+
+.dashboard-cards{
+grid-template-columns:repeat(2,220px);
+}
+
+table{
+width:90%;
+}
+
+}
+
+@media(max-width:600px){
+
+.admin-sidebar{
+display:none;
+}
+
+.dashboard-cards{
+grid-template-columns:repeat(1,220px);
+}
+
+}
+
+@media(max-width:600px){
+
+.add-product-form{
+width:90%;
+padding:25px;
+}
+
+}

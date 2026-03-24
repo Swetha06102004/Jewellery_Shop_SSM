@@ -1,0 +1,92 @@
+.bv-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.7);
+  backdrop-filter: blur(6px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.bv-popup {
+  width: 420px;
+  background: radial-gradient(
+    circle at top,
+    rgba(255, 215, 0, 0.18),
+    #0b0b0b 60%
+  );
+  border-radius: 16px;
+  padding: 30px;
+  color: #fff;
+  position: relative;
+  animation: pop 0.4s ease;
+}
+
+@keyframes pop {
+  from { transform: scale(0.9); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+.bv-close {
+  position: absolute;
+  top: 14px;
+  right: 18px;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+.bv-popup h2 {
+  text-align: center;
+  color: #ffd700;
+  margin-bottom: 6px;
+}
+
+.bv-sub {
+  text-align: center;
+  font-size: 13px;
+  color: #ccc;
+  margin-bottom: 22px;
+}
+
+.bv-popup input,
+.bv-popup select {
+  width: 100%;
+  background: #121212;
+  border: 1px solid #2a2a2a;
+  padding: 12px;
+  margin-bottom: 14px;
+  border-radius: 8px;
+  color: #fff;
+}
+
+.bv-row {
+  display: flex;
+  gap: 12px;
+}
+
+.bv-btn {
+  width: 100%;
+  background: linear-gradient(135deg, #ffd700, #c9a227);
+  color: #000;
+  font-weight: 600;
+  padding: 12px;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.bv-btn:hover {
+  transform: translateY(-2px);
+}
+
+.bv-trust {
+  text-align: center;
+  font-size: 11px;
+  color: #aaa;
+  margin-top: 12px;
+}

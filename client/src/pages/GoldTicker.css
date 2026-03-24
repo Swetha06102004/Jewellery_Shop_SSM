@@ -1,0 +1,36 @@
+.metal-ticker{
+display:flex;
+align-items:center;
+background:#ffd700;
+overflow:hidden;
+width:100%;
+max-width: 1500px;
+}
+
+.ticker-label{
+background:#ffd700;
+padding:10px 20px;
+font-weight:bold;
+white-space:nowrap;
+}
+
+.ticker-scroll{
+flex:1;
+overflow:hidden;
+}
+
+.ticker-move{
+display:flex;
+width:max-content;
+animation:scroll 15s linear infinite;
+}
+
+.ticker-move span{
+white-space:nowrap;
+padding:10px 50px;
+}
+
+@keyframes scroll{
+0%{ transform:translateX(0); }
+100%{ transform:translateX(-50%); }
+}

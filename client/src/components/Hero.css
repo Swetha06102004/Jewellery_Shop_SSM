@@ -1,0 +1,69 @@
+.hero {
+  height: 80vh;
+  width: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: right 30% center;
+  display: flex;
+  align-items: center;
+  padding-left: 80px;
+  position: relative;
+  /* subtle luxury glow */
+  box-shadow: inset -180px 0 260px rgba(255, 215, 0, 0.07);
+}
+
+/* Soft overlay – NOT too dark */
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to right,
+    rgba(255, 215, 0, 0.12),  /* soft gold tint (left) */
+    rgba(255, 215, 0, 0.06),  /* lighter center */
+    rgba(255, 255, 255, 0)   /* fully transparent right */
+  );
+}
+
+/* Text content */
+.hero-left {
+  position: relative;
+  max-width: 600px;
+  color: white;
+  z-index: 2;
+}
+
+.hero h1 {
+  font-size: 56px;
+  line-height: 1.2;
+  font-weight: 700;
+}
+
+.hero span {
+  color: gold;
+}
+
+.hero p {
+  margin-top: 20px;
+  font-size: 18px;
+  color: #e0e0e0;
+  line-height: 1.6;
+}
+
+/* CTA Button */
+.hero-btn {
+  margin-top: 32px;
+  padding: 14px 36px;
+  background: gold;
+  border: none;
+  font-size: 17px;
+  font-weight: bold;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.hero-btn:hover {
+  background: #e6b800;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 18px rgba(255, 215, 0, 0.35);
+}

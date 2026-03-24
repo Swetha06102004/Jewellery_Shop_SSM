@@ -1,0 +1,149 @@
+/* ================= Footer Base ================= */
+.footer {
+  background: linear-gradient(135deg, #0b0b0b, #1a1a1a);
+  color: #ddd;
+  padding: 70px 90px 30px;
+  font-family: "Segoe UI", sans-serif;
+}
+
+/* ================= Footer Container ================= */
+.footer-container {
+  display: flex;
+  flex-direction: row;          /* ✅ horizontal */
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 50px;
+
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+
+  border-bottom: 2px solid;
+  border-image: linear-gradient(to right, #ffd700, transparent) 1;
+  padding-bottom: 50px;
+}
+
+/* ================= Footer Columns ================= */
+.footer-brand,
+.footer-links,
+.footer-contact,
+.footer-policies {
+  flex: 1;
+  min-width: 220px;
+}
+
+/* ================= Brand ================= */
+.footer-brand h2 {
+  color: #ffd700;
+  font-size: 28px;
+  margin-bottom: 15px;
+  letter-spacing: 1px;
+}
+
+.footer-brand p {
+  color: #ccc;
+  line-height: 1.8;
+  max-width: 280px;
+}
+
+/* ================= Links ================= */
+.footer-links h4,
+.footer-contact h4,
+.footer-policies h4 {
+  color: #fff;
+  font-size: 16px;
+  margin-bottom: 18px;
+}
+
+.footer-links a {
+  display: block;
+  color: #aaa;
+  text-decoration: none;
+  margin-bottom: 10px;
+  font-size: 14px;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: #ffd700;
+  transform: translateX(4px);
+}
+
+/* ================= Contact ================= */
+.footer-contact p {
+  font-size: 14px;
+  color: #ccc;
+  margin-bottom: 10px;
+  line-height: 1.8;
+}
+
+/* ================= Policies ================= */
+.footer-policies ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-policies li {
+  margin-bottom: 12px;
+}
+
+.footer-policies a {
+  color: #aaa;
+  text-decoration: none;
+  font-size: 14px;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.footer-policies a:hover {
+  color: #ffd700;
+  transform: translateX(4px);
+}
+
+/* ================= Social Icons ================= */
+.footer-social {
+  margin-top: 18px;
+  display: flex;
+  gap: 16px;
+}
+
+.footer-social a {
+  color: #aaa;
+  font-size: 18px;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.footer-social a:hover {
+  color: #ffd700;
+  transform: scale(1.15);
+}
+
+/* ================= Footer Bottom ================= */
+.footer-bottom {
+  text-align: center;
+  padding-top: 25px;
+  font-size: 13px;
+  color: #777;
+}
+
+/* ================= Mobile Responsive ================= */
+@media (max-width: 900px) {
+  .footer {
+    padding: 60px 30px 25px;
+  }
+
+  .footer-container {
+    flex-direction: column;   /* 📱 mobile only */
+    align-items: center;
+    text-align: center;
+    gap: 40px;
+  }
+
+  .footer-brand p {
+    max-width: 100%;
+  }
+
+  .footer-social {
+    justify-content: center;
+  }
+}

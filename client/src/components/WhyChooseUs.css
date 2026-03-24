@@ -1,0 +1,98 @@
+.why-us {
+  padding: 40px 8% 80px;
+  background: linear-gradient(180deg, #fffaf0, #ffffff);
+  text-align: center;
+}
+
+/* Section heading */
+.why-us h2 {
+  font-size: 36px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: #1c1c1c;
+  letter-spacing: 0.5px;
+}
+
+/* Gold underline */
+.why-us h2::after {
+  content: "";
+  display: block;
+  width: 80px;
+  height: 3px;
+  background: linear-gradient(to right, #d4af37, #f5e28c);
+  margin: 14px auto 0;
+  border-radius: 10px;
+}
+
+.why-sub {
+  font-size: 16px;
+  color: #777;
+  margin-top: 18px;
+  margin-bottom: 60px;
+}
+
+/* Cards layout */
+.why-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 35px;
+}
+
+/* Card */
+.why-card {
+  background: #ffffff;
+  padding: 38px 28px;
+  border-radius: 22px;
+  box-shadow: 0 14px 35px rgba(0,0,0,0.08);
+  transition: all 0.35s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Gold glow line on hover */
+.why-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    120deg,
+    rgba(212,175,55,0.18),
+    rgba(255,255,255,0)
+  );
+  opacity: 0;
+  transition: opacity 0.35s ease;
+}
+
+.why-card:hover::before {
+  opacity: 1;
+}
+
+.why-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 22px 50px rgba(0,0,0,0.15);
+}
+
+/* Card title */
+.why-card h3 {
+  font-size: 21px;
+  margin-bottom: 14px;
+  color: #2b2b2b;
+}
+
+/* Card text */
+.why-card p {
+  font-size: 15px;
+  color: #666;
+  line-height: 1.7;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .why-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .why-us {
+    padding: 70px 6%;
+  }
+}
