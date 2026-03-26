@@ -10,7 +10,7 @@ function CategoryPage() {
 
   useEffect(() => {
 
-    axios.get(`http://localhost:5000/jewellery?category=${category}`)
+    axios.get(`https://jewellery-shop-ssm-1.onrender.com/jewellery?category=${category}`)
       .then(res => setProducts(res.data))
       .catch(err => console.log(err));
 

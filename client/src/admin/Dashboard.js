@@ -8,15 +8,15 @@ function Dashboard(){
 
  useEffect(()=>{
 
-  fetch("http://localhost:5000/admin/customers")
+  fetch("https://jewellery-shop-ssm-1.onrender.com/admin/customers")
   .then(res=>res.json())
   .then(data=>setCustomers(data.length));
 
-  fetch("http://localhost:5000/admin/bookings")
+  fetch("https://jewellery-shop-ssm-1.onrender.com/admin/bookings")
   .then(res=>res.json())
   .then(data=>setBookings(data.length));
 
-  fetch("http://localhost:5000/admin/products")
+  fetch("https://jewellery-shop-ssm-1.onrender.com/admin/products")
   .then(res=>res.json())
   .then(data=>setProducts(data.length));
 

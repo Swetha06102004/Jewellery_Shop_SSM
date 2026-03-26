@@ -12,7 +12,7 @@ function GoldPriceTicker(){
 
     try{
 
-      const res = await fetch("http://localhost:5000/api/gold-price");
+      const res = await fetch("https://jewellery-shop-ssm-1.onrender.com/api/gold-price");
 
       const data = await res.json();
 

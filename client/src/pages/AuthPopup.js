@@ -68,7 +68,7 @@ function AuthPopup({ open, onClose }) {
     setLoading(true);
 
     try {
-      const res = await fetch("http://localhost:5000/send-otp", {
+      const res = await fetch("https://jewellery-shop-ssm-1.onrender.com/send-otp", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
@@ -105,7 +105,7 @@ const verifyOtp = async (e) => {
   setLoading(true);
 
   try {
-    const res = await fetch("http://localhost:5000/verify-otp", {
+    const res = await fetch("https://jewellery-shop-ssm-1.onrender.com/verify-otp", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"

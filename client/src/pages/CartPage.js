@@ -21,7 +21,7 @@ function CartPage() {
 }, [user]);
 
 useEffect(() => {
-  fetch("http://localhost:5000/api/gold-price")
+  fetch("https://jewellery-shop-ssm-1.onrender.com/api/gold-price")
     .then(res => res.json())
     .then(data => setGoldPrice(data.price))
     .catch(err => console.log(err));
@@ -47,7 +47,7 @@ useEffect(() => {
     }));
 
     try {
-      const res = await fetch("http://localhost:5000/api/order", {
+      const res = await fetch("https://jewellery-shop-ssm-1.onrender.com/api/order", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({

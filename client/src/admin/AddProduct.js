@@ -27,7 +27,7 @@ data.append("weight",form.weight);
 data.append("price",form.price);
 data.append("image",form.image);
 
-await fetch("http://localhost:5000/admin/add-product",{
+await fetch("https://jewellery-shop-ssm-1.onrender.com/admin/add-product",{
 method:"POST",
 body:data
 });

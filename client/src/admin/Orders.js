@@ -6,7 +6,7 @@ function Orders(){
 
  useEffect(()=>{
 
-  fetch("http://localhost:5000/admin/orders")
+  fetch("https://jewellery-shop-ssm-1.onrender.com/admin/orders")
   .then(res=>res.json())
   .then(data=>setOrders(data));
 

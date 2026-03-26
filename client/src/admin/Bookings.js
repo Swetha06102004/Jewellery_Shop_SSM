@@ -6,7 +6,7 @@ function Bookings(){
 
  useEffect(()=>{
 
-  fetch("http://localhost:5000/admin/bookings")
+  fetch("https://jewellery-shop-ssm-1.onrender.com/admin/bookings")
   .then(res=>res.json())
   .then(data=>setBookings(data));
 

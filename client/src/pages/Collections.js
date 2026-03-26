@@ -31,7 +31,7 @@ function Collections() {
   // ========================
   useEffect(() => {
 
-    axios.get("http://localhost:5000/api/jewels")
+    axios.get("https://jewellery-shop-ssm-1.onrender.com/api/jewels")
       .then(res => {
         setJewellery(res.data);
         setFilteredJewellery(res.data);
@@ -44,7 +44,7 @@ function Collections() {
   }, []);
 
   useEffect(() => {
-  fetch("http://localhost:5000/api/gold-price")
+  fetch("https://jewellery-shop-ssm-1.onrender.com/api/gold-price")
     .then(res => res.json())
     .then(data => setGoldPrice(data.price))
     .catch(err => console.log(err));
@@ -111,7 +111,7 @@ function Collections() {
 
     try {
 
-      await axios.post("http://localhost:5000/api/wishlist/add", {
+      await axios.post("https://jewellery-shop-ssm-1.onrender.com/api/wishlist/add", {
         mobile: user.mobile,
         productId
       });
@@ -146,7 +146,7 @@ function Collections() {
         return;
       }
 
-      await axios.post("http://localhost:5000/api/cart/add", {
+      await axios.post("https://jewellery-shop-ssm-1.onrender.com/api/cart/add", {
         mobile: user.mobile,
         productId
       });
@@ -155,7 +155,7 @@ function Collections() {
         id: product._id,
         name: product.name,
         price: product.price,
-        image: `http://localhost:5000${product.image}`, // ✅ fixed
+        image: `https://jewellery-shop-ssm-1.onrender.com${product.image}`, // ✅ fixed
         category: product.category,
         subCategory: product.subCategory
       });
@@ -251,7 +251,7 @@ function Collections() {
             <Link to={`/category/${item.category}`}>
 
               <img
-                src={`http://localhost:5000${item.image}`}
+                src={`https://jewellery-shop-ssm-1.onrender.com${item.image}`}
                 alt={item.name}
                 className="jewel-image"
               />
@@ -284,7 +284,7 @@ function Collections() {
                 onClick={() =>
                   navigate("/tryon", {
                     state: {
-                      image: `http://localhost:5000${item.image}`,
+                      image: `https://jewellery-shop-ssm-1.onrender.com${item.image}`,
                       type: item.subCategory
                     }
                   })

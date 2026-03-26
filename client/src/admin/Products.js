@@ -7,7 +7,7 @@ function Products(){
 
  const loadProducts = ()=>{
 
-  fetch("http://localhost:5000/admin/products")
+  fetch("https://jewellery-shop-ssm-1.onrender.com/admin/products")
   .then(res=>res.json())
   .then(data=>setProducts(data));
 
@@ -19,7 +19,7 @@ function Products(){
 
  const deleteProduct = async(id)=>{
 
-  await fetch(`http://localhost:5000/admin/product/${id}`,{
+  await fetch(`https://jewellery-shop-ssm-1.onrender.com/admin/product/${id}`,{
    method:"DELETE"
   });
 
@@ -38,7 +38,7 @@ function Products(){
     <div key={p._id}>
 
      <img
-      src={`http://localhost:5000${p.image}`}
+      src={`https://jewellery-shop-ssm-1.onrender.com${p.image}`}
       width="120"
      />
 
