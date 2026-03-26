@@ -25,11 +25,11 @@ function Footer() {
         {/* Links */}
         <div className="footer-links">
           <h4>Quick Links</h4>
-          <a href="#">Home</a>
-          <a href="#">Collections</a>
-          <a href="#">Gold Plan</a>
-          <a href="#">About Us</a>
-          <a href="#">Contact</a>
+          <a href="/">Home</a>
+          <a href="/collections">Collections</a>
+          <a href="/gold-plan">Gold Plan</a>
+          <a href="/about">About Us</a>
+          <a href="/contact">Contact</a>
         </div>
 
         {/* Contact */}

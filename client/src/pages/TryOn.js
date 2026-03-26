@@ -159,7 +159,7 @@ jewelry.src = jewelImage;
 
     camera.start();
 
-  }, []);
+  }, [category, jewelImage]);
 
   return (
 

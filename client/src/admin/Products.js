@@ -39,6 +39,7 @@ function Products(){
 
      <img
       src={`https://jewellery-shop-ssm-1.onrender.com${p.image}`}
+      alt={p.name || "product image"} 
       width="120"
      />
 

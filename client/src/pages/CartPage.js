@@ -18,7 +18,7 @@ function CartPage() {
     navigate("/");
   }
 
-}, [user]);
+}, [user, navigate]);
 
 useEffect(() => {
   fetch("https://jewellery-shop-ssm-1.onrender.com/api/gold-price")
