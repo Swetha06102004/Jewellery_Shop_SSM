@@ -1,7 +1,10 @@
 import "./Hero.css";
 import heroImg from "../assets/hero-jewel.png"; 
+import { useNavigate } from "react-router-dom";
 
 function Hero() {
+  const navigate = useNavigate();
+
   return (
     <div
       className="hero"
@@ -23,7 +26,7 @@ function Hero() {
           crafted with tradition and elegance.
         </p>
 
-        <button className="hero-btn">
+        <button onClick={() => navigate("/collections")} className="hero-btn">
           Explore Collections
         </button>
       </div>

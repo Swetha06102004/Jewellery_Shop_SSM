@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useCart } from "../context/CartContext";
 import { useAuth } from "../context/AuthContext";
@@ -9,22 +9,28 @@ function CartPage() {
   const { cartItems, removeFromCart, updateQty, clearCart } = useCart();
   const { user } = useAuth();
   const navigate = useNavigate();
+  const [goldPrice, setGoldPrice] = useState(0);
 
   useEffect(() => {
 
-    const token = localStorage.getItem("token");
+  if (!user) {
+    alert("Please login first");
+    navigate("/");
+  }
 
-    if (!token) {
-      alert("Please login first");
-      navigate("/");
-    }
+}, [user]);
 
-  }, []);
+useEffect(() => {
+  fetch("http://localhost:5000/api/gold-price")
+    .then(res => res.json())
+    .then(data => setGoldPrice(data.price))
+    .catch(err => console.log(err));
+}, []);
 
-  const total = cartItems.reduce(
-    (sum, item) => sum + item.price * item.qty,
-    0
-  );
+ const total = cartItems.reduce(
+  (sum, item) => sum + (item.weight * goldPrice) * item.qty,
+  0
+);
 
   const placeOrder = async () => {
     if (!user || !user.mobile) {
@@ -75,11 +81,11 @@ function CartPage() {
       <div className="cart-items">
         {cartItems.map((item) => (
           <div key={item.id} className="cart-item">
-            <img src={item.image} alt={item.name} className="cart-item-image" />
+            <img src={item.image}   alt={item.name} className="cart-item-image" />
 
             <div className="cart-item-details">
               <h4 className="cart-item-name">{item.name}</h4>
-              <p className="cart-item-price">₹ {item.price}</p>
+              <p className="cart-item-price"> ₹ {goldPrice ? item.weight * goldPrice : "..."} </p>
             </div>
 
             <div className="cart-item-controls">

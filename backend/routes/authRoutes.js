@@ -12,13 +12,14 @@ router.post("/send-otp", (req,res)=>{
 
   const {name,mobile} = req.body;
 
-  const otp = Math.floor(1000 + Math.random() * 9000);
+  const otp = Math.floor(1000 + Math.random() * 9000).toString();
 
   otpStore[mobile] = otp;
+  console.log(`Generated OTP for ${mobile}: ${otp}`);
+
 
   res.json({
     success:true,
-    otp:otp
   });
 
 });
@@ -27,42 +28,44 @@ router.post("/send-otp", (req,res)=>{
 // ==================
 // VERIFY OTP
 // ==================
-router.post("/verify-otp", async (req,res)=>{
+router.post("/verify-otp", async (req, res) => {
 
-  const {mobile,otp,name} = req.body;
+  const { mobile, otp, name } = req.body;
 
-  if(otpStore[mobile] != otp){
+  const savedOtp = otpStore[mobile];
+
+  if (!savedOtp || savedOtp !== otp) {
     return res.json({
-      success:false,
-      msg:"Invalid OTP"
+      success: false,
+      msg: "Invalid OTP"
     });
   }
 
-  let user = await User.findOne({mobile});
+  // ✅ OTP verified → delete it
+  delete otpStore[mobile];
 
-  if(!user){
+  // ✅ Check if user exists
+  let user = await User.findOne({ mobile });
 
+  if (!user) {
     user = new User({
       name,
       mobile,
-      purchases:[],
-      goldPlans:[],
-      wishlist:[],
-      cart:[]
+      purchases: [],
+      goldPlans: [],
+      wishlist: [],
+      cart: []
     });
-
     await user.save();
-
   }
 
   res.json({
-    success:true,
-    user:user,
-    token:"dummy-token"
+    success: true,
+    user: user,
+    token: "dummy-token"
   });
 
 });
-
 // ADD TO WISHLIST
 router.post("/wishlist/add", async (req,res)=>{
 

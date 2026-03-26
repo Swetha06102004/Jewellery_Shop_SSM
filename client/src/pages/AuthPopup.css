@@ -98,6 +98,22 @@
   color: #ffd700;
 }
 
+/* Error Text */
+.error {
+  color: #ff4d4f;
+  font-size: 12px;
+  margin-top: -12px;
+  margin-bottom: 12px;
+  padding-left: 5px;
+  display: block;
+}
+
+/* Error Input Border */
+.input-error {
+  border: 1px solid #ff4d4f !important;
+  box-shadow: 0 0 6px rgba(255, 77, 79, 0.4);
+}
+
 /* Animation */
 @keyframes fadeUp {
   from {

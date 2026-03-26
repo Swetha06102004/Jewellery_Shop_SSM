@@ -3,11 +3,15 @@ import axios from "axios";
 import { Link,useNavigate } from "react-router-dom";
 import Webcam from "react-webcam";
 import { useCart } from "../context/CartContext";
+import { useAuth } from "../context/AuthContext"; // ✅ added
 import "./Collections.css";
 
 function Collections() {
   const navigate = useNavigate();
   const { addToCart } = useCart();
+  const { user } = useAuth(); // ✅ added
+  const [goldPrice, setGoldPrice] = useState(0);
+
   const [jewellery, setJewellery] = useState([]);
   const [filteredJewellery, setFilteredJewellery] = useState([]);
   const [error, setError] = useState(null);
@@ -21,8 +25,6 @@ function Collections() {
   const [openTry, setOpenTry] = useState(false);
 
   const webcamRef = useRef(null);
-
-  const token = localStorage.getItem("token");
 
   // ========================
   // FETCH JEWELLERY
@@ -40,6 +42,13 @@ function Collections() {
       });
 
   }, []);
+
+  useEffect(() => {
+  fetch("http://localhost:5000/api/gold-price")
+    .then(res => res.json())
+    .then(data => setGoldPrice(data.price))
+    .catch(err => console.log(err));
+}, []);
 
   // ========================
   // FILTER LOGIC
@@ -95,9 +104,7 @@ function Collections() {
   // ========================
   const handleAddToWishlist = async (productId) => {
 
-    const mobile = localStorage.getItem("mobile");
-
-    if (!mobile) {
+    if (!user) { // ✅ changed
       showLogin();
       return;
     }
@@ -105,7 +112,7 @@ function Collections() {
     try {
 
       await axios.post("http://localhost:5000/api/wishlist/add", {
-        mobile,
+        mobile: user.mobile,
         productId
       });
 
@@ -125,16 +132,13 @@ function Collections() {
   // ========================
   const handleAddToCart = async (productId) => {
 
-    const mobile = localStorage.getItem("mobile");
-
-    if (!mobile) {
+    if (!user) { // ✅ changed
       showLogin();
       return;
     }
 
     try {
 
-      // Find the product from the jewellery array
       const product = jewellery.find(item => item._id === productId);
 
       if (!product) {
@@ -142,18 +146,16 @@ function Collections() {
         return;
       }
 
-      // Add to backend
       await axios.post("http://localhost:5000/api/cart/add", {
-        mobile,
+        mobile: user.mobile,
         productId
       });
 
-      // Add to local cart context
       addToCart({
         id: product._id,
         name: product.name,
         price: product.price,
-        image: `http://localhost:5000/uploads/${product.image}`,
+        image: `http://localhost:5000${product.image}`, // ✅ fixed
         category: product.category,
         subCategory: product.subCategory
       });
@@ -178,7 +180,7 @@ function Collections() {
 
     console.log("Captured Image:", imageSrc);
 
-    alert("Image captured! (You can send this to AI Try-On API)");
+    alert("Image captured!");
 
   };
 
@@ -186,7 +188,6 @@ function Collections() {
 
     <div className="collections-page">
 
-      {/* LOGIN MESSAGE */}
       {loginMessage && (
         <div className="login-warning">
           Please login to continue
@@ -196,8 +197,6 @@ function Collections() {
       <h1 className="collections-title">
         All Jewellery Collections
       </h1>
-
-      {/* ================= FILTERS ================= */}
 
       <div className="filters">
 
@@ -237,14 +236,11 @@ function Collections() {
 
       </div>
 
-      {/* ERROR */}
       {error && (
         <p style={{ color: "red", textAlign: "center" }}>
           {error}
         </p>
       )}
-
-      {/* ================= PRODUCTS ================= */}
 
       <div className="collections-container">
 
@@ -255,69 +251,55 @@ function Collections() {
             <Link to={`/category/${item.category}`}>
 
               <img
-  src={`http://localhost:5000${item.image}`}
-  alt={item.name}
-  className="jewel-image"
-/>
+                src={`http://localhost:5000${item.image}`}
+                alt={item.name}
+                className="jewel-image"
+              />
 
               <h3>{item.name}</h3>
               <p className="weight-display">{item.weight}g</p>
-              <p className="price-display">₹{item.price}</p>
+              <p className="price-display"> ₹ {goldPrice ? item.weight * goldPrice : "..."}</p>
 
             </Link>
 
-            {token ? (
-
-              <div className="card-actions">
-
-                <button
-                  className="wishlist-btn"
-                  onClick={() => handleAddToWishlist(item._id)}
-                >
-                  ❤️ Wishlist
-                </button>
-
-                <button
-                  className="cart-btn"
-                  onClick={() => handleAddToCart(item._id)}
-                >
-                  🛒 Add to Cart
-                </button>
-
-                <button
- className="try-btn"
- onClick={() =>
-   navigate("/tryon", {
-     state: {
-       image: `http://localhost:5000${item.image}`,
-       type: item.subCategory
-     }
-   })
- }
->
-✨ Try This
-</button>
-
-              </div>
-
-            ) : (
+            {/* ✅ ALWAYS SHOW BUTTONS */}
+            <div className="card-actions">
 
               <button
-                className="login-btn"
-                onClick={showLogin}
+                className="wishlist-btn"
+                onClick={() => handleAddToWishlist(item._id)}
               >
-                Login to Buy
+                ❤️ Wishlist
               </button>
 
-            )}
+              <button
+                className="cart-btn"
+                onClick={() => handleAddToCart(item._id)}
+              >
+                🛒 Add to Cart
+              </button>
+
+              <button
+                className="try-btn"
+                onClick={() =>
+                  navigate("/tryon", {
+                    state: {
+                      image: `http://localhost:5000${item.image}`,
+                      type: item.subCategory
+                    }
+                  })
+                }
+              >
+                ✨ Try This
+              </button>
+
+            </div>
 
           </div>
 
         ))}
 
       </div>
-
-      {/* ================= CAMERA POPUP ================= */}
 
       {openTry && (
 
