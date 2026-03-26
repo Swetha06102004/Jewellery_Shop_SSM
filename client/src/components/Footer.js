@@ -16,9 +16,9 @@ function Footer() {
 
           {/* Social Icons */}
           <div className="footer-social">
-            <a href="#"><FaFacebookF /></a>
-            <a href="#"><FaInstagram /></a>
-            <a href="#"><FaTwitter /></a>
+            <a href="/"><FaFacebookF /></a>
+            <a href="/"><FaInstagram /></a>
+            <a href="/"><FaTwitter /></a>
           </div>
         </div>
 
